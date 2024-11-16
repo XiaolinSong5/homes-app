@@ -18,3 +18,7 @@
 - Run the application 
 
   `ng serve`
+
+- Generate component
+
+  `ng g c Home --standalone --inline-template`
