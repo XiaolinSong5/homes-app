@@ -22,3 +22,6 @@
 - Generate component
 
   `ng g c Home --standalone --inline-template`
+- Generate interface
+
+  `ng g interface HousingLocation`
