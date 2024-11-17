@@ -22,6 +22,16 @@
 - Generate component
 
   `ng g c Home --standalone --inline-template`
+
 - Generate interface
 
   `ng g interface HousingLocation`
+
+- HTTP
+
+  `npm install -g json-server`
+
+- Start json-server
+
+
+`json-server --watch db.json`
