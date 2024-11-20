@@ -7,17 +7,19 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class HousingService {
-  url='http://localhost:3000/locations';
+  urlDbServer='http://localhost:3000/locations';
+  urlBackendList='http://localhost:8080/locations';
+  urlBackendSingle='http://localhost:8080/location';
 
   constructor(private http: HttpClient) { }
 
   getAllHousingLocations(): Observable<HousingLocation[]> {
-    const data = this.http.get<HousingLocation[]>(this.url);
+    const data = this.http.get<HousingLocation[]>(this.urlBackendList);
     return data ?? [];
   }
 
   getHousingLocationById(id:number) : Observable<HousingLocation | undefined> {
-    const data = this.http.get<HousingLocation>(`${this.url}/${id}`);
+    const data = this.http.get<HousingLocation>(`${this.urlBackendSingle}?locationId=${id}`);
     return data ?? {};
   }
 
