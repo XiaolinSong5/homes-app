@@ -12,12 +12,13 @@ export class HousingService {
   constructor(private http: HttpClient) { }
 
   getAllHousingLocations(): Observable<HousingLocation[]> {
-    return this.http.get<HousingLocation[]>(this.url);
+    const data = this.http.get<HousingLocation[]>(this.url);
+    return data ?? [];
   }
 
-  async getHousingLocationById(id:number) : Promise<HousingLocation | undefined> {
-    const data = await fetch(`${this.url}/${id}`);
-    return await data.json() ?? {};
+  getHousingLocationById(id:number) : Observable<HousingLocation | undefined> {
+    const data = this.http.get<HousingLocation>(`${this.url}/${id}`);
+    return data ?? {};
   }
 
   submitApplication(firstName: string, lastName: string, email: string) {
